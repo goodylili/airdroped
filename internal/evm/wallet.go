@@ -24,7 +24,7 @@ func CreateWallet() (address, privateKey string, err error) {
 		log.Fatal("error casting public key to ECDSA")
 	}
 
-	address = string(crypto.PubkeyToAddress(*publicKeyECDSA).Hex())
+	address = crypto.PubkeyToAddress(*publicKeyECDSA).Hex()
 
 	return address, privateKey, nil
 }
