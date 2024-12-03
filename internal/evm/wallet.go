@@ -14,7 +14,6 @@ func CreateWallet() (address, privateKey string, err error) {
 	if err != nil {
 		return "", "", err
 	}
-
 	privateKeyBytes := crypto.FromECDSA(privateKeyECDSA)
 	privateKey = hexutil.Encode(privateKeyBytes)[2:]
 
