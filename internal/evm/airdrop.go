@@ -221,32 +221,32 @@ func (a *Airdrop) CreateAndSendBundledTx(allocations map[common.Address]*big.Int
 	return txHashes, nil
 }
 
-//func main() {
-//	rpcURL := "https://arbitrum-mainnet.infura.io/v3/23c96151438348e79d1e963324d33b02"
-//	privateKeyHex := "f0029d055d03c9e06e4c87ac6f0c6209948707987765d47e6121e873d9fae3cf"
-//	tokenAddressHex := "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
-//
-//	airdrop, err := NewAirdrop(rpcURL, privateKeyHex, tokenAddressHex)
-//	if err != nil {
-//		log.Fatalf("[FATAL] Failed to initialize airdrop: %v", err)
-//	}
-//	defer airdrop.Client.Close()
-//
-//	allocations := map[common.Address]*big.Int{
-//		common.HexToAddress("0xCc52829336f610B6f22A8C381Fb8Dd05a7BDba93"): MustConvertToTokenUnits(airdrop.Token, 0.01),
-//		common.HexToAddress("0x034a084D73e5FC65308394B45A3235BA48a623ac"): MustConvertToTokenUnits(airdrop.Token, 0.01),
-//		common.HexToAddress("0xE164004bB260EC5c4E007837DA21Be984419054f"): MustConvertToTokenUnits(airdrop.Token, 0.01),
-//	}
-//
-//	txHashes, err := airdrop.CreateAndSendBundledTx(allocations)
-//	if err != nil {
-//		log.Fatalf("[FATAL] Failed to complete airdrop transactions: %v", err)
-//	}
-//
-//	// Optional: Print out transaction hashes
-//	for recipient, txHash := range txHashes {
-//		log.Printf("Recipient %s received tokens in transaction: %s", recipient.Hex(), txHash.Hex())
-//	}
-//
-//	log.Println("[COMPLETE] Airdrop process completed successfully.")
-//}
+func main() {
+	rpcURL := "https://arbitrum-mainnet.infura.io/v3/23c96151438348e79d1e963324d33b02"
+	privateKeyHex := "f0029d055d03c9e06e4c87ac6f0c6209948707987765d47e6121e873d9fae3cf"
+	tokenAddressHex := "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+
+	airdrop, err := NewAirdrop(rpcURL, privateKeyHex, tokenAddressHex)
+	if err != nil {
+		log.Fatalf("[FATAL] Failed to initialize airdrop: %v", err)
+	}
+	defer airdrop.Client.Close()
+
+	allocations := map[common.Address]*big.Int{
+		common.HexToAddress("0xCc52829336f610B6f22A8C381Fb8Dd05a7BDba93"): MustConvertToTokenUnits(airdrop.Token, 0.01),
+		common.HexToAddress("0x034a084D73e5FC65308394B45A3235BA48a623ac"): MustConvertToTokenUnits(airdrop.Token, 0.01),
+		common.HexToAddress("0xE164004bB260EC5c4E007837DA21Be984419054f"): MustConvertToTokenUnits(airdrop.Token, 0.01),
+	}
+
+	txHashes, err := airdrop.CreateAndSendBundledTx(allocations)
+	if err != nil {
+		log.Fatalf("[FATAL] Failed to complete airdrop transactions: %v", err)
+	}
+
+	// Optional: Print out transaction hashes
+	for recipient, txHash := range txHashes {
+		log.Printf("Recipient %s received tokens in transaction: %s", recipient.Hex(), txHash.Hex())
+	}
+
+	log.Println("[COMPLETE] Airdrop process completed successfully.")
+}
