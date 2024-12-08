@@ -2,10 +2,9 @@ package evm
 
 import (
 	"crypto/ecdsa"
-	"log"
-
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+	"log"
 )
 
 // CreateWallet generates a new Ethereum wallet for user.
