@@ -1,4 +1,4 @@
-package cmd
+package configurations
 
 import (
 	"github.com/joho/godotenv"
@@ -16,7 +16,7 @@ type Config struct {
 	AirdropOption string
 }
 
-func LoadConfig() *Config {
+func LoadConfigurations() *Config {
 	// Load the .env file
 	err := godotenv.Load()
 	if err != nil {
